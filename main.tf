@@ -1,12 +1,14 @@
-provider "aws" {
-  region = var.aws_region
+variable "aws_region" {
+  description = "The AWS region to deploy resources in."
+  type        = string
 }
 
-resource "aws_instance" "example" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
+variable "ami_id" {
+  description = "The ID of the Amazon Machine Image to use for the EC2 instance."
+  type        = string
+}
 
-  tags = {
-    Name = "Day4Instance"
-  }
+variable "instance_type" {
+  description = "The type of EC2 instance to launch."
+  type        = string
 }
